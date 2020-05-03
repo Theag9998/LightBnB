@@ -132,11 +132,7 @@ const getAllProperties = function(options, limit = 10) {
   
   if(options.minimum_rating) {
     queryParams.push(`${options.minimum_rating}`);
-    //if (queryParams.length === 1) {
       queryString += ` HAVING AVG(property_reviews.rating) >= $${queryParams.length} `;
-    // } else {
-    //   queryString += ` HAVING AVG(property_reviews.rating) >= $${queryParams.length} `;
-    // }
   }
    // 4
    queryParams.push(limit);
@@ -173,3 +169,4 @@ INSERT INTO properties (owner_id, title, description, thumbnail_photo_url, cover
 
 };
 exports.addProperty = addProperty;
+
